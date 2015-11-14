@@ -1,7 +1,7 @@
 const listStyle = { style: "list-style-type: none; padding: 0; margin: 0 0 0 12px" };
 const keyStyle = { style: "color:#881391" };
 
-export default function createFormatter(Immutable) {
+module.exports = function createFormatter(Immutable) {
 
   function reference(any, config) {
     return ["object", { object: any, config: config }]
@@ -108,11 +108,11 @@ export default function createFormatter(Immutable) {
   };
 
   const immutableFormatters = {
+    OrderedMap: orderedMapFormatter,
+    OrderedSet: orderedSetFormatter,
     List: listFormatter,
     Map: mapFormatter,
-    OrderedMap: orderedMapFormatter,
     Set: setFormatter,
-    OrderedSet: orderedSetFormatter,
     Stack: stackFormatter
   };
 

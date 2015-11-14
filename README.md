@@ -31,8 +31,8 @@ And enable with:
 ```js
 var Immutable = require("immutable");
 
-var install = require("immutable-devtools");
-install(Immutable);
+var devTools = require("immutable-devtools");
+devTools.install(Immutable);
 ```
 
 Note: You probably only want this library for debug builds, so perhaps wrap with `if (DEBUG) {...}` or similar.

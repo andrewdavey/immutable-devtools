@@ -5,7 +5,9 @@ module.exports = {
   },
   output: {
     path: "./dist",
-    filename: "index.js"
+    filename: "index.js",
+    library: "immutableDevTools",
+    libraryTarget: "commonjs2"
   },
   module: {
     loaders: [
