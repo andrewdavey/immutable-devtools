@@ -1,9 +1,9 @@
 {
   "name": "immutable-devtools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Chrome Dev Tools formatter for the Immutable JS library",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": ["dist", "before.png", "after.png"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,9 @@
     "babel-loader": "^6.1.0",
     "babel-core": "^6.1.4",
     "babel-preset-es2015": "^6.1.4"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/andrewdavey/immutable-devtools"
   }
 }
