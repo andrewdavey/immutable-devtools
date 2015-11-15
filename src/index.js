@@ -9,7 +9,7 @@ if (typeof Immutable !== "undefined") {
 
 let installed = false;
 module.exports = function install(Immutable) {
-  if (typeof window === undefined) {
+  if (typeof window === "undefined") {
     throw new Error("Can only install immutable-devtools in a browser environment.");
   }
 
