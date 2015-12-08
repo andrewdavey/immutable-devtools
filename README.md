@@ -2,7 +2,7 @@
 
 The [Immutable](http://facebook.github.io/immutable-js/) library is fantastic, but inspecting immutable collections in Chrome's Dev Tools is awkward. You only see the internal data structure, not the logical contents. For example, when inspecting the contents of an Immutable List, you'd really like to see the items in the list.
 
-The latest Canary version of Chrome (v48 as of writing) has support for custom "formatters". A formatter tells Chrome's Dev Tools how to display values in the Console, Scope list, etc. This means we can display Lists, Maps and other collections, in a much better way.
+Chrome (v47+) has support for custom "formatters". A formatter tells Chrome's Dev Tools how to display values in the Console, Scope list, etc. This means we can display Lists, Maps and other collections, in a much better way.
 
 Essentially, it turns this:
 
@@ -16,7 +16,7 @@ This library provides a formatter to do just that.
 
 ## Installation
 
-Chrome v47+ (currently this is a Canary build)
+Chrome v47+
 
 In Dev Tools, press F1 to load the Settings. Scroll down to the Console section and tick "Enable custom formatters".
 
