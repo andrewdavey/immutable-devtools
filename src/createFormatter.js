@@ -4,6 +4,9 @@ const keyStyle = { style: "color:#881391" };
 module.exports = function createFormatter(Immutable) {
 
   function reference(any, config) {
+    if (any === undefined) {
+      return "undefined";
+    }
     return ["object", { object: any, config: config }]
   }
 
