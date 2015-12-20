@@ -94,8 +94,9 @@ module.exports = function createFormatter(Immutable) {
   };
 
   const recordFormatter = {
-    header() {
-      return ["span", "Record"];
+    header(record) {
+      const recordName = record._name || record.constructor.name || "Record";
+      return ["span", recordName];
     },
     hasBody: notEmpty,
     body(record) {
