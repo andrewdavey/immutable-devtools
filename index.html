@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>Immutable DevTools Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/immutable/3.7.6/immutable.min.js"></script>
+    <script src="dist/index.js"></script>
+    <script id="demoScript">
+      var MyRecord = Immutable.Record({
+        value: 'original',
+        b: Immutable.List([1,2,,null,5]),
+        c: Immutable.Map({key1: {item1: null}})
+      }, 'MyRecord');
+      console.log('It\'s hard without Immutable DevTools:', MyRecord());
+
+      // Do not forget to install devtools!
+      Immutable.installDevTools();
+      console.log('Happy Immutable coding with installDevTools!');
+
+      console.log(
+        'Record', MyRecord(),
+        'altered key are bold', MyRecord({value: 'altered'}));
+
+      var deep = Immutable.fromJS({Hello: {very: {deep: ['immutable', 'world']}}});
+      console.log('Deep:', deep);
+
+      var orderedMap = Immutable.OrderedMap({
+        This: 'should',
+        persist: 'order'
+      });
+      var orderedMap2 = orderedMap
+        .set('of', 'nonsense')
+        .set('by', 'first')
+        .set('assignment', 'time')
+        .set('of', 'keys')
+        .set('This', 'must');
+
+      console.log('OrderedMap', orderedMap, orderedMap2);
+
+      var mapWithObjectKey = orderedMap
+        .set(deep, 'This value has immutable key')
+        .set(
+          {'plain object keys': 'are possible'},
+          {'object to object': 'mapping is possible'})
+        .set(
+          {'plain object keys': 'are possible'},
+          {'structure': 'mapping is complicated without Immutable'});
+      console.log('Map with object keys:', mapWithObjectKey.toMap());
+
+    </script>
+  </head>
+  <body>
+    <h1><a href="https://github.com/andrewdavey/immutable-devtools#readme">Immutable DevTools Demo</a></h1>
+
+    <p>See
+      <a href="https://github.com/andrewdavey/immutable-devtools#readme">README</a>
+      on project page
+    </p>
+
+    <p>Open Console (F12) to see result of this code:</p>
+    <pre id="demoSource"></pre>
+    <script>
+      document.getElementById('demoSource').innerText =
+        document.getElementById('demoScript').innerText;
+    </script>
+  </body>
+</html>
