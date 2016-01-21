@@ -23,7 +23,10 @@ export default function createFormatter(Immutable) {
   const hasBody = (collection, config) =>
     collection.size > 0 && !(config && config.noPreview);
 
-  const renderIterableBody = (collection, mapper) => {
+  const renderIterableBody = (collection, mapper, options = {}) => {
+    if (options.sorted) {
+      collection = collection.sortBy((value, key) => key);
+    }
     const children = collection
       .map(mapper)
       .toList()
@@ -123,7 +126,8 @@ export default function createFormatter(Immutable) {
     hasBody,
     body(o) {
       return renderIterableBody(o, (value, key) => 
-        ['li', {}, '{', reference(key), ' => ', reference(value), '}']
+        ['li', {}, '{', reference(key), ' => ', reference(value), '}'],
+        {sorted: true}
       );
     }
   };
@@ -151,7 +155,8 @@ export default function createFormatter(Immutable) {
     hasBody,
     body(o) {
       return renderIterableBody(o, value =>
-        ['li', reference(value)]
+        ['li', reference(value)],
+        {sorted: true}
       );
     }
   };
