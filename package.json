@@ -1,11 +1,12 @@
 {
   "name": "immutable-devtools",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Chrome Dev Tools formatter for the Immutable JS library",
   "main": "dist/index.js",
   "files": ["dist", "before.png", "after.png"],
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
+    "prepublish": "npm build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
