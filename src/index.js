@@ -43,3 +43,4 @@ module.exports = function install(Immutable) {
   installed = true;
 }
 
+export default install;
