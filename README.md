@@ -1,5 +1,9 @@
 # Chrome Dev Tools for Immutable-js
 
+[![Npm Version](https://badge.fury.io/js/immutable-devtools.svg)](https://badge.fury.io/js/immutable-devtools)
+[![NPM downloads](http://img.shields.io/npm/dm/immutable-devtools.svg)](https://www.npmjs.com/package/immutable-devtools)
+[![devDependency Status](https://david-dm.org/andrewdavey/immutable-devtools/dev-status.svg)](https://david-dm.org/andrewdavey/immutable-devtools#info=devDependencies)
+
 The [Immutable](http://facebook.github.io/immutable-js/) library is fantastic, but inspecting immutable collections in Chrome's Dev Tools is awkward. You only see the internal data structure, not the logical contents. For example, when inspecting the contents of an Immutable List, you'd really like to see the items in the list.
 
 Chrome (v47+) has support for custom "formatters". A formatter tells Chrome's Dev Tools how to display values in the Console, Scope list, etc. This means we can display Lists, Maps and other collections, in a much better way.
