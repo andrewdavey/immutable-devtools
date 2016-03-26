@@ -14,6 +14,22 @@ into:
 
 This library provides a formatter to do just that.
 
+
+## Features
+
+The library currently has formatters for:
+
+ - [x] `List`
+ - [x] `Map` & `OrderedMap`
+ - [x] `Set` & `OrderedSet`
+ - [x] `Stack`
+ - [ ] `Range` (let me know if you use this :-), add :+1: to [#21](https://github.com/andrewdavey/immutable-devtools/issues/21))
+ - [ ] `Repeat` (if you wish this, add :+1: to [#22](https://github.com/andrewdavey/immutable-devtools/issues/22))
+ - [x] `Record`
+ - [ ] `Seq` — I do not have an idea how to display it. If you know, [write it down into #23](https://github.com/andrewdavey/immutable-devtools/issues/23)
+
+Want something more? [Write down your wishes!](https://github.com/andrewdavey/immutable-devtools/issues/new)
+
 ## Installation
 
 Chrome v47+
@@ -36,6 +52,7 @@ installDevTools(Immutable);
 ```
 
 Note: You probably only want this library for debug builds, so perhaps wrap with `if (DEBUG) {...}` or similar.
+
 
 ## Using with webpack
 
@@ -72,8 +89,3 @@ NODE_ENV=production webpack -p index.js
 ```
 
 See [#16](https://github.com/andrewdavey/immutable-devtools/issues/16) for more info.
-
-## Features
-
-The library currently has formatters for: List, Map, Set, Record, OrderedMap & OrderedSet.
-
