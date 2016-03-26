@@ -8,7 +8,7 @@ if (typeof Immutable !== "undefined") {
 // I imagine most people are using Immutable as a CommonJS module though...
 
 let installed = false;
-module.exports = function install(Immutable) {
+function install(Immutable) {
   if (typeof window === "undefined") {
     throw new Error("Can only install immutable-devtools in a browser environment.");
   }
@@ -43,4 +43,5 @@ module.exports = function install(Immutable) {
   installed = true;
 }
 
+module.exports = install;
 export default install;
