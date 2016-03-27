@@ -57,6 +57,9 @@ installDevTools(Immutable);
 
 Note: You probably only want this library for debug builds, so perhaps wrap with `if (DEBUG) {...}` or similar.
 
+## Chrome Extension
+
+Matt  Zeunert created a [Chrome Extension](https://github.com/mattzeunert/immutable-object-formatter-extension) based on this project. It automatically installs the formatters when you open the DevTools. ([Install from Chrome Web Store](https://chrome.google.com/webstore/detail/immutablejs-object-format/hgldghadipiblonfkkicmgcbbijnpeog)).
 
 ## Using with webpack
 
