@@ -59,7 +59,7 @@ Note: You probably only want this library for debug builds, so perhaps wrap with
 
 ## Chrome Extension
 
-Instead of loading the formatters in your project you can also install a [Chrome extension](https://chrome.google.com/webstore/detail/immutablejs-object-format/hgldghadipiblonfkkicmgcbbijnpeog) that installs them when you open the DevTools.
+Matt  Zeunert created a [Chrome Extension](https://github.com/mattzeunert/immutable-object-formatter-extension) based on this project. It automatically installs the formatters when you open the DevTools. ([Install from Chrome Web Store](https://chrome.google.com/webstore/detail/immutablejs-object-format/hgldghadipiblonfkkicmgcbbijnpeog)).
 
 ## Using with webpack
 
