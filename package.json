@@ -6,7 +6,7 @@
   "files": ["dist", "before.png", "after.png"],
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "prepublish": "npm build",
+    "prepublish": "npm run-script build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
