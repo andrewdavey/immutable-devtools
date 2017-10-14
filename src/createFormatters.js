@@ -20,8 +20,11 @@ export default function createFormatter(Immutable) {
   const renderIterableHeader = (iterable, name = 'Iterable') =>
     ['span', ['span', immutableNameStyle, name], ['span', `[${iterable.size}]`]];
 
+
+  const getKeySeq = collection => collection.toSeq().map((v, k) => k).toIndexedSeq()
+
   const hasBody = (collection, config) =>
-    collection.size > 0 && !(config && config.noPreview);
+    getKeySeq(collection).size > 0 && !(config && config.noPreview);
 
   const renderIterableBody = (collection, mapper, options = {}) => {
     if (options.sorted) {
@@ -50,8 +53,7 @@ export default function createFormatter(Immutable) {
       if (!changed) {
         inlinePreview = ['span', inlineValuesStyle, '{}'];
       } else {
-        const preview = record
-          .keySeq()
+        const preview = getKeySeq(record)
           .reduce((preview, key) => {
             if (Immutable.is(defaults.get(key), record.get(key)))
               return preview;
@@ -74,8 +76,7 @@ export default function createFormatter(Immutable) {
     hasBody,
     body(record) {
       const defaults = record.clear();
-      const children = record
-        .keySeq()
+      const children = getKeySeq(record)
         .map(key => {
           const style = Immutable.is(defaults.get(key), record.get(key))
             ? defaultValueKeyStyle : alteredValueKeyStyle;
