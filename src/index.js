@@ -9,16 +9,14 @@ if (typeof Immutable !== "undefined") {
 
 let installed = false;
 function install(Immutable) {
-  if (typeof window === "undefined") {
-    throw new Error("Can only install immutable-devtools in a browser environment.");
-  }
+  const gw = typeof window === "undefined" ? global : window;
 
   // Don't install more than once.
   if (installed === true) {
     return;
   }
 
-  window.devtoolsFormatters = window.devtoolsFormatters || [];
+  gw.devtoolsFormatters = gw.devtoolsFormatters || [];
 
   const {
     RecordFormatter,
@@ -30,7 +28,7 @@ function install(Immutable) {
     StackFormatter
   } = createFormatters(Immutable);
 
-  window.devtoolsFormatters.push(
+  gw.devtoolsFormatters.push(
     RecordFormatter,
     OrderedMapFormatter,
     OrderedSetFormatter,
