@@ -32,8 +32,12 @@ export default function createFormatter(Immutable) {
     }
     const children = collection
       .map(mapper)
-      .toList()
-      .toJS();
+      .toList();
+
+    const jsList = []
+    // Can't just call toJS because that will also call toJS on children inside the list
+    children.forEach(child => jsList.push(child))
+
     return [ 'ol', listStyle, ...children ];
   }
 
@@ -77,6 +81,7 @@ export default function createFormatter(Immutable) {
     body(record) {
       const defaults = record.clear();
       const children = getKeySeq(record)
+        .toJS()
         .map(key => {
           const style = Immutable.is(defaults.get(key), record.get(key))
             ? defaultValueKeyStyle : alteredValueKeyStyle;
@@ -85,7 +90,7 @@ export default function createFormatter(Immutable) {
               ['span', style, key + ': '],
               reference(record.get(key))
             ]
-        }).toJS();
+        });
       return [ 'ol', listStyle, ...children ];
     }
   };
