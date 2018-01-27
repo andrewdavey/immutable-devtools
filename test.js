@@ -12,6 +12,8 @@ class ABRecord extends Immutable.Record({a:1,b:2}) {
     }
 }
 
+console.log("Record object itself, not a record instance - make sure there are no errors", ABRecord)
+
 var Xyz = new Immutable.Map({a: new Immutable.Map({b:8})})
 console.log("Expand this and check child renders as a Map", Xyz)
 

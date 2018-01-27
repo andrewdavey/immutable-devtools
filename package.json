@@ -1,6 +1,6 @@
 {
   "name": "immutable-devtools",
-  "version": "0.0.7",
+  "version": "0.1.2",
   "description": "Chrome Dev Tools formatter for the Immutable JS library",
   "main": "dist/index.js",
   "files": ["dist", "before.png", "after.png"],
