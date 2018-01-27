@@ -8,6 +8,22 @@ const nullStyle = {style: 'color: #777'};
 
 export default function createFormatter(Immutable) {
 
+  const isRecord = maybeRecord => {
+    // Immutable v4
+    if (maybeRecord['@@__IMMUTABLE_RECORD__@@']) {
+      // There's also a Immutable.Record.isRecord we could use, but then the
+      // Immutable instance passed into createFormatter has to be the same
+      // version as the one used to create the Immutable object.
+      // That's especially a problem for the Chrome extension.
+      return true
+    }
+    // Immutable v3
+    return !!(
+      maybeRecord['@@__IMMUTABLE_KEYED__@@'] && 
+      maybeRecord['@@__IMMUTABLE_ITERABLE__@@'] &&
+      maybeRecord._defaultValues !== undefined)
+  }
+
   const reference = (object, config) => {
     if (typeof object === 'undefined')
       return ['span', nullStyle, 'undefined'];
@@ -43,7 +59,7 @@ export default function createFormatter(Immutable) {
 
   const RecordFormatter = {
     header(record, config) {
-      if (!(record instanceof Immutable.Record))
+      if (!(isRecord(record)))
         return null;
 
       const defaults = record.clear();
