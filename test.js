@@ -1,5 +1,4 @@
 // Run `node --inspect --inspect-brk test.js`, open the debugger, and check everything renders correctly
-// Note that this will only test Immutable v4!
 
 var Immutable4 = require("immutable");
 var Immutable3 = require("immutable3");
