@@ -10,7 +10,7 @@ export default function createFormatter(Immutable) {
 
   const isRecord = maybeRecord => {
     if (maybeRecord && maybeRecord._values === undefined) {
-      // don't detect Immutable.Record.prototype as a Recod instance
+      // don't detect Immutable.Record.prototype as a Record instance
       return
     }
     // Immutable v4
