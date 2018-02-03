@@ -9,7 +9,10 @@ const nullStyle = {style: 'color: #777'};
 export default function createFormatter(Immutable) {
 
   const isRecord = maybeRecord => {
-    if (maybeRecord && maybeRecord._values === undefined) {
+    if (maybeRecord &&
+        maybeRecord._values === undefined // in v3 record
+        && maybeRecord._map === undefined // in v4 record
+      ) {
       // don't detect Immutable.Record.prototype as a Record instance
       return
     }
