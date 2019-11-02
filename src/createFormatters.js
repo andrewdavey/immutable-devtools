@@ -95,7 +95,7 @@ export default function createFormatter(Immutable) {
           }, []);
         inlinePreview = ['span', inlineValuesStyle, '{', ...preview, '}'];
       }
-      return ['span',  { style: 'position: relative'},
+      return ['span',  {},
         ['span', immutableNameStyle, record._name || record.constructor.name || 'Record'],
         ' ', inlinePreview
       ];
